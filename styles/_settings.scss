@@ -1,0 +1,65 @@
+$c-white: #fff;
+$c-main-gray: #f5f5f5;
+$c-main-dark-gray: #7d7d7d;
+$c-darken-gray: darken($c-main-gray, 10%);
+$c-seagreen: #289f99;
+$c-orange: #ff6634;
+$c-blue: #00ccff;
+$c-limegreen: #cdcc00;
+
+$themes: (
+        event-1: (
+                bg: (base: $c-main-gray,
+                        light: lighten($c-main-gray, 15%),
+                        dark: darken($c-main-gray, 5%)
+                ),
+                main-color: (base: $c-seagreen,
+                        light: lighten($c-seagreen, 10%),
+                        dark: darken($c-seagreen, 5%)
+                )
+        ),
+        event-2: (
+                bg: (base: $c-main-gray,
+                        light: lighten($c-main-gray, 15%),
+                        dark: darken($c-main-gray, 5%)
+                ),
+                main-color: (base: $c-orange,
+                        light: lighten($c-orange, 10%),
+                        dark: darken($c-orange, 10%)
+                )
+        ),
+        event-3: (
+                bg: (base: $c-main-gray,
+                        light: lighten($c-main-gray, 15%),
+                        dark: darken($c-main-gray, 5%)
+                ),
+                main-color: (base: $c-blue,
+                        light: lighten($c-blue, 10%),
+                        dark: darken($c-blue, 10%)
+                )
+        ),
+        event-4: (
+                bg: (base: $c-main-gray,
+                        light: lighten($c-main-gray, 15%),
+                        dark: darken($c-main-gray, 5%)
+                ),
+                main-color: (base: $c-limegreen,
+                        light: lighten($c-limegreen, 10%),
+                        dark: darken($c-limegreen, 5%)
+                )
+        )
+);
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+$font-family-text: 'Montserrat', sans-serif;
+
+$spacing-unit-10: 10px;
+$spacing-unit-15: 15px;
+$spacing-unit-20: 20px;
+$spacing-unit-30: 30px;
+$spacing-unit-40: 40px;
+$spacing-unit-50: 50px;
+
+$z-index-event-hover: 2;
+
+$a-smooth-transition: .7s;

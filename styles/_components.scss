@@ -1,0 +1,124 @@
+@mixin animate {
+  @for $i from 1 through length($themes) {
+    .fade-in-event:nth-child(#{$i}) {
+      -webkit-animation-delay: (#{$i * 0.10s});
+      animation-delay: (#{$i * 0.20s});
+    }
+  }
+}
+
+@mixin beautify {
+  @each $event, $map in $themes {
+    .#{$event} {
+      display: flex;
+      background-color: map-get(map_get($map, bg), base);
+      border: 1px solid $c-darken-gray;
+      border-right: solid 7px map-get(map_get($map, main-color), base);
+      height: 25%;
+      transition: $a-smooth-transition;
+
+      .event-open-seats-count {
+        background-color: map-get(map_get($map, main-color), base);
+        transition: $a-smooth-transition;
+      }
+
+      &:hover {
+        background-color: map-get(map_get($map, bg), dark);
+        box-shadow: 0 1px 1px 2px rgba(125, 125, 125, 0.66);
+        -moz-box-shadow: 0 1px 1px 2px rgba(125, 125, 125, 0.66);
+        -webkit-box-shadow: 0 1px 1px 2px rgba(125, 125, 125, 0.66);
+        border-right-color: map-get(map_get($map, main-color), light);
+        z-index: $z-index-event-hover;
+      }
+
+      .event-image {
+        transition: $a-smooth-transition;
+
+        &:hover {
+          border: solid 5px map-get(map_get($map, main-color), base);
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@include beautify;
+
+@include animate;
+
+.event-image {
+  border: solid 5px $c-darken-gray;
+  border-radius: 100%;
+  box-sizing: border-box;
+  max-height: 120px;
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.event-promo {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $spacing-unit-20 $spacing-unit-50 $spacing-unit-20;
+  margin-right: 15px;
+}
+
+.event-overview {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.event-open-seats {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.event-open-seats-text {
+  font-family: $font-family-text;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+  padding-bottom: 3px;
+}
+
+.event-open-seats-count {
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: $c-white;
+  font-family: $font-family-text;
+  font-size: 14px;
+  padding: 5px 30px;
+}
+
+.event-schedule-text, .event-duration-text, .event-place-text {
+  font-family: $font-family-text;
+  font-size: 11px;
+}
+
+.event-schedule, .event-duration {
+  padding-right: $spacing-unit-20;
+}
+
+.event-title {
+  font-family: $font-family-text;
+  font-size: 32px;
+  font-weight: 300;
+  margin: $spacing-unit-20 0 $spacing-unit-10;
+}
+
+.event-venue {
+  display: flex;
+  margin-bottom: $spacing-unit-20;
+}
+
+.fas, .far {
+  color: $c-main-dark-gray;
+  padding-right: 5px;
+}
